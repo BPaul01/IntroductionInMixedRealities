@@ -6,6 +6,21 @@ TagManager:
   tags:
   - OlivesBowl
   - PepperoniBowl
+  - CornBowl
+  - BaconBowl
+  - ChickenBowl
+  - PepperBowl
+  - MeatBowl
+  - BluecheeseBowl
+  - OnionBowl
+  - MozzarellaBowl
+  - MushroomBowl
+  - TomatoBowl
+  - HamBowl
+  - CheesesliceBowl
+  - HotpepperBowl
+  - RedpepperBowl
+  - Bell
   layers:
   - Default
   - TransparentFX
