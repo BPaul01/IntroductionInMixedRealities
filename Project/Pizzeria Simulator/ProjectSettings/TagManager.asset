@@ -23,6 +23,7 @@ TagManager:
   - Bell
   - Pizza
   - Pepperoni
+  - Olive
   layers:
   - Default
   - TransparentFX

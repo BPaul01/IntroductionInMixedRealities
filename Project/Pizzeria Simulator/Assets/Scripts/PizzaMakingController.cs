@@ -5,7 +5,8 @@ using UnityEngine;
 public class PizzaMakingController : MonoBehaviour
 {
     public Transform handTransform;
-    public Transform topping1;
+    public List<Transform> toppings;
+    //public Transform topping2;
 
     public GameObject oliveToSpawn;
     public GameObject pepperoniToSpawn;
@@ -24,11 +25,19 @@ public class PizzaMakingController : MonoBehaviour
     public GameObject hotpepperToSpawn;
     public GameObject redpepperToSpawn;
 
-    public GameObject pepperoniToping;
+    public GameObject pepperoniTopping;
+    public GameObject oliveTopping;
 
     private GameObject heldObject;
     private GameObject top1;
+    private GameObject top2;
 
+    private int[] toppingsAparitii;
+
+    void Start()
+    {
+        toppingsAparitii = new int[toppings.Count];
+    }
 
     // Update is called once per frame
     void Update()
@@ -59,6 +68,7 @@ public class PizzaMakingController : MonoBehaviour
                     if (hitObject.CompareTag("OlivesBowl"))
                     {
                         heldObject = Instantiate(oliveToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Olive";
                     }
                     else if (hitObject.CompareTag("PepperoniBowl"))
                     {
@@ -68,60 +78,74 @@ public class PizzaMakingController : MonoBehaviour
                     else if (hitObject.CompareTag("CornBowl"))
                     {
                         heldObject = Instantiate(cornToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Corn";
                     }
                     else if (hitObject.CompareTag("BaconBowl"))
                     {
                         heldObject = Instantiate(baconToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Bacon";
                     }
                     else if (hitObject.CompareTag("ChickenBowl"))
                     {
                         heldObject = Instantiate(chickenToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Chicken";
                     }
                     else if (hitObject.CompareTag("PepperBowl"))
                     {
                         heldObject = Instantiate(pepperToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Pepper";
                     }
                     else if (hitObject.CompareTag("MeatBowl"))
                     {
                         heldObject = Instantiate(meatToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Meat";
                     }
                     else if (hitObject.CompareTag("BluecheeseBowl"))
                     {
                         heldObject = Instantiate(bluecheeseToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "BlueCheese";
                     }
                     else if (hitObject.CompareTag("OnionBowl"))
                     {
                         heldObject = Instantiate(onionToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Onion";
 
                     }
                     else if (hitObject.CompareTag("MozzarellaBowl"))
                     {
                         heldObject = Instantiate(mozzarellaToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Mozzarella";
                     }
                     else if (hitObject.CompareTag("MushroomBowl"))
                     {
                         heldObject = Instantiate(mushroomToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Mushroom";
                     }
                     else if (hitObject.CompareTag("TomatoBowl"))
                     {
                         heldObject = Instantiate(tomatoToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Tomato";
                     }
                     else if (hitObject.CompareTag("HamBowl"))
                     {
                         heldObject = Instantiate(hamToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "Ham";
                     }
                     else if (hitObject.CompareTag("CheesesliceBowl"))
                     {
                         heldObject = Instantiate(cheesesliceToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "CheeseSlice";
 
                     }
                     else if (hitObject.CompareTag("HotpepperBowl"))
                     {
                         heldObject = Instantiate(hotpepperToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "HotPepper";
                     }
                     else if (hitObject.CompareTag("RedpepperBowl"))
                     {
                         heldObject = Instantiate(redpepperToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "RedPepper";
                     }
 
                 }
@@ -231,11 +255,37 @@ public class PizzaMakingController : MonoBehaviour
             //Pizza making part
             if (hitObject.CompareTag("Pizza") && heldObject != null && Input.GetKeyDown(KeyCode.F))
             {
-                if (heldObject.CompareTag("Pepperoni"))
+                Debug.Log("Pizza area");
+
+                int poz = -1;
+                bool gasit = false;
+                //find the next empty topping
+                for (int i = 0; i < toppings.Count; i++)
                 {
-                    Destroy(heldObject);
-                    top1 = Instantiate(pepperoniToping, topping1.position, topping1.rotation, topping1);
+                    if (toppingsAparitii[i] == 0 && gasit == false)
+                    {
+                        poz = i;
+                        gasit = true;
+                        toppingsAparitii[i] = 1; 
+                    }
                 }
+
+                Debug.Log("Empty topping index: " + poz);
+
+                if (poz >= 0)
+                {
+                    if (heldObject.CompareTag("Pepperoni"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(pepperoniTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if(heldObject.CompareTag("Olive"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(oliveTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                }
+                
             }
         }
 
