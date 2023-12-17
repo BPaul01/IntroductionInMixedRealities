@@ -21,6 +21,8 @@ TagManager:
   - HotpepperBowl
   - RedpepperBowl
   - Bell
+  - Pizza
+  - Pepperoni
   layers:
   - Default
   - TransparentFX
