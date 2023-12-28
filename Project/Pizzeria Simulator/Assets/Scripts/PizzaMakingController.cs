@@ -24,9 +24,27 @@ public class PizzaMakingController : MonoBehaviour
     public GameObject cheesesliceToSpawn;
     public GameObject hotpepperToSpawn;
     public GameObject redpepperToSpawn;
+    public GameObject tomatoladleToSpawn;
+    public GameObject cheeseladleToSpawn;
 
     public GameObject pepperoniTopping;
     public GameObject oliveTopping;
+    public GameObject cornTopping;
+    public GameObject baconTopping;
+    public GameObject chickenTopping;
+    public GameObject pepperTopping;
+    public GameObject meatTopping;
+    public GameObject bluecheeseTopping;
+    public GameObject onionTopping;
+    public GameObject mozzarellaTopping;
+    public GameObject mushroomTopping;
+    public GameObject tomatoTopping;
+    public GameObject hamTopping;
+    public GameObject cheesesliceTopping;
+    public GameObject redpepperTopping;
+    public GameObject hotpepperTopping;
+    public GameObject tomatosouceTopping;
+    public GameObject cheesesouceTopping;
 
     private GameObject heldObject;
     private GameObject top1;
@@ -60,7 +78,8 @@ public class PizzaMakingController : MonoBehaviour
                 || hitObject.CompareTag("OnionBowl") || hitObject.CompareTag("MozzarellaBowl")
                 || hitObject.CompareTag("MushroomBowl") || hitObject.CompareTag("TomatoBowl")
                 || hitObject.CompareTag("HamBowl") || hitObject.CompareTag("CheesesliceBowl")
-                || hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl"))
+                || hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl")
+                || hitObject.CompareTag("TomatoSouceBowl") || hitObject.CompareTag("CheeseSouceBowl"))
             {
                 // Spawn an object in the hand (you can instantiate your object here)
                 if (heldObject == null && Input.GetKeyDown(KeyCode.G))
@@ -146,6 +165,16 @@ public class PizzaMakingController : MonoBehaviour
                     {
                         heldObject = Instantiate(redpepperToSpawn, handTransform.position, handTransform.rotation, handTransform);
                         heldObject.tag = "RedPepper";
+                    }
+                    else if (hitObject.CompareTag("TomatoSouceBowl"))
+                    {
+                        heldObject = Instantiate(tomatoladleToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "TomatoLadle";
+                    }
+                    else if (hitObject.CompareTag("CheeseSouceBowl"))
+                    {
+                        heldObject = Instantiate(cheeseladleToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                        heldObject.tag = "CheeseLadle";
                     }
 
                 }
@@ -249,6 +278,16 @@ public class PizzaMakingController : MonoBehaviour
 
                         heldObject = Instantiate(redpepperToSpawn, handTransform.position, handTransform.rotation, handTransform);
                     }
+                    if (hitObject.CompareTag("TomatoSouceBowl"))
+                    {
+                        Destroy(heldObject);
+                        heldObject = Instantiate(tomatoladleToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                    }
+                    if (hitObject.CompareTag("CheeseSouceBowl"))
+                    {
+                        Destroy(heldObject);
+                        heldObject = Instantiate(cheeseladleToSpawn, handTransform.position, handTransform.rotation, handTransform);
+                    }
                 }
             }
 
@@ -284,6 +323,87 @@ public class PizzaMakingController : MonoBehaviour
                         Destroy(heldObject);
                         Instantiate(oliveTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
                     }
+                    else if(heldObject.CompareTag("Corn"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(cornTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Bacon"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(baconTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Chicken"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(chickenTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Pepper"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(pepperTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Meat"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(meatTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("BlueCheese"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(bluecheeseTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Onion"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(onionTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Mozzarella"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(mozzarellaTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Mushroom"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(mushroomTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Tomato"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(tomatoTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("Ham"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(hamTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("CheeseSlice"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(cheesesliceTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("RedPepper"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(redpepperTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("HotPepper"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(hotpepperTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("TomatoLadle"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(tomatosouceTopping, toppings[poz].position, Quaternion.Euler(90f, 0f, 0f), toppings[poz]);
+                    }
+                    else if (heldObject.CompareTag("CheeseLadle"))
+                    {
+                        Destroy(heldObject);
+                        Instantiate(cheesesouceTopping, toppings[poz].position, Quaternion.Euler(90f, 0f, 0f), toppings[poz]);
+                    }
+
                 }
                 
             }

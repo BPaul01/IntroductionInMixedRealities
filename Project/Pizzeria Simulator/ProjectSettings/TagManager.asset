@@ -24,6 +24,25 @@ TagManager:
   - Pizza
   - Pepperoni
   - Olive
+  - Corn
+  - Bacon
+  - Ladle
+  - TomatoSouceBowl
+  - CheeseSouceBowl
+  - Meat
+  - Pepper
+  - Chicken
+  - BlueCheese
+  - Onion
+  - Mozzarella
+  - Mushroom
+  - Tomato
+  - Ham
+  - CheeseSlice
+  - RedPepper
+  - HotPepper
+  - TomatoLadle
+  - CheeseLadle
   layers:
   - Default
   - TransparentFX

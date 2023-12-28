@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
 
             // Check if the object is a bowl
             if (hitObject.CompareTag("OlivesBowl") || hitObject.CompareTag("PepperoniBowl") || hitObject.CompareTag("CornBowl") || hitObject.CompareTag("BaconBowl") || hitObject.CompareTag("ChickenBowl") || hitObject.CompareTag("PepperBowl") || hitObject.CompareTag("MeatBowl") || hitObject.CompareTag("BluecheeseBowl") || hitObject.CompareTag("OnionBowl") || hitObject.CompareTag("MozzarellaBowl") 
-                    || hitObject.CompareTag("MushroomBowl")  || hitObject.CompareTag("TomatoBowl") || hitObject.CompareTag("HamBowl") || hitObject.CompareTag("CheesesliceBowl") | hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl"))
+                    || hitObject.CompareTag("MushroomBowl")  || hitObject.CompareTag("TomatoBowl") || hitObject.CompareTag("HamBowl") || hitObject.CompareTag("CheesesliceBowl") || hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl") || hitObject.CompareTag("TomatoSouceBowl") || hitObject.CompareTag("CheeseSouceBowl"))
             {
                 // Highlight the bowl
                 HighlightBowl(hitObject);
