@@ -5,6 +5,7 @@ using UnityEngine;
 public class OvenController : MonoBehaviour
 {
     private Animator animator;
+    private bool doorOpen = false;
 
     private void Start()
     {
@@ -13,10 +14,15 @@ public class OvenController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Change this to your desired input
+        if (Input.GetKeyDown(KeyCode.E) && !doorOpen)
         {
             animator.SetBool("DoorOpen", !animator.GetBool("DoorOpen"));
+            doorOpen = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && doorOpen)
+        {
+            animator.SetBool("DoorClose", !animator.GetBool("DoorClose"));
+            doorOpen = false;
         }
     }
 }
-

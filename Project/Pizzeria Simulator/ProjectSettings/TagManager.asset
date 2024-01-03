@@ -43,6 +43,7 @@ TagManager:
   - HotPepper
   - TomatoLadle
   - CheeseLadle
+  - HeldPizza
   layers:
   - Default
   - TransparentFX
