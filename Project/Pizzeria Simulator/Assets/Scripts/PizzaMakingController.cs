@@ -6,7 +6,8 @@ public class PizzaMakingController : MonoBehaviour
 {
     public Transform handTransform;
     public Transform pizzaTransform;
-    public List<Transform> toppings;
+    public Transform doughTransform;
+
 
     public GameObject oliveToSpawn;
     public GameObject pepperoniToSpawn;
@@ -26,6 +27,7 @@ public class PizzaMakingController : MonoBehaviour
     public GameObject redpepperToSpawn;
     public GameObject tomatoladleToSpawn;
     public GameObject cheeseladleToSpawn;
+    public GameObject pizzaDoughToSpawn;
 
     public GameObject pepperoniTopping;
     public GameObject oliveTopping;
@@ -46,15 +48,12 @@ public class PizzaMakingController : MonoBehaviour
     public GameObject tomatosouceTopping;
     public GameObject cheesesouceTopping;
 
+    private GameObject pizzaDough;
     private GameObject heldObject;
     private bool holdingObject = false;
 
-    private int[] toppingsAparitii;
-
-    void Start()
-    {
-        toppingsAparitii = new int[toppings.Count];
-    }
+    //private int[] toppingsAparitii;
+    //private List<Transform> toppings;
 
     // Update is called once per frame
     void Update()
@@ -290,139 +289,149 @@ public class PizzaMakingController : MonoBehaviour
                 }
             }
 
+            //Pizza dough spawn
+            if (hitObject.CompareTag("DoughBowl") && Input.GetKeyDown(KeyCode.G))
+            {
+                Debug.Log("Dough area");
+
+                pizzaDough = Instantiate(pizzaDoughToSpawn, doughTransform.position, doughTransform.rotation, doughTransform);
+
+            }
+
             //Pizza making part
             if (hitObject.CompareTag("Pizza") && heldObject != null && Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Pizza area");
+                /*
+                 * TODO:
+                 *  1. Search for a topping refference of the pizza that has no children (aka is empty)
+                 *  2. The result should be a transform component of the first empty topping reference
+                 *  3. replace child with the result 
+                 *  4. delete 
+                 */
 
+                //Get all the childern
+                bool found = false;
+                int childCount = hitObject.transform.childCount;
+                Transform child = null;
                 int poz = -1;
-                bool gasit = false;
-                //find the next empty topping
-                for (int i = 0; i < toppings.Count; i++)
+                if (childCount > 0)
                 {
-                    if (toppingsAparitii[i] == 0 && gasit == false)
+                    for (int i = 0; i < childCount; i++)
                     {
-                        Debug.Log("Found the empty toppin: Top" + (poz + 1) + "Reference");
-                        gasit = true;
-                        poz = i;
-                        
+                        //get the child
+                        child = hitObject.transform.GetChild(i);
+
+                        //verify if the object has any children
+                        if (child.childCount == 0 && child.name.StartsWith("Top"))
+                        {
+                            found = true;
+                            poz = i - 2;
+                            break;
+                        }
                     }
                 }
 
-                Debug.Log("Empty topping index: " + poz);
-
-                if (poz >= 0)
+                if (found)
                 {
+                    Quaternion randomRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+
+                    Debug.Log("Empty topping:" + child.gameObject.name);
+
                     if (heldObject.CompareTag("TomatoLadle") && poz <= 1)
                     {
                         Destroy(heldObject);
-                        Instantiate(tomatosouceTopping, toppings[poz].position, Quaternion.Euler(90f, 0f, 0f), toppings[poz]);
-                        toppingsAparitii[poz] = 1;
-
+                        Instantiate(tomatosouceTopping, child.position, Quaternion.Euler(90f, 0f, 0f), child);
                     }
                     else if (heldObject.CompareTag("CheeseLadle") && poz <= 1)
                     {
                         Destroy(heldObject);
-                        Instantiate(cheesesouceTopping, toppings[poz].position, Quaternion.Euler(90f, 0f, 0f), toppings[poz]);
-                        toppingsAparitii[poz] = 1;
-
+                        Instantiate(cheesesouceTopping, child.position, Quaternion.Euler(90f, 0f, 0f), child);
                     }
 
                     else if (heldObject.CompareTag("Pepperoni"))
                     {
                         Destroy(heldObject);
-                        Instantiate(pepperoniTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(pepperoniTopping, child.position, randomRotation, child);
                     }
-                    else if(heldObject.CompareTag("Olive"))
+                    else if (heldObject.CompareTag("Olive"))
                     {
                         Destroy(heldObject);
-                        Instantiate(oliveTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(oliveTopping, child.position, randomRotation, child);
                     }
-                    else if(heldObject.CompareTag("Corn"))
+                    else if (heldObject.CompareTag("Corn"))
                     {
                         Destroy(heldObject);
-                        Instantiate(cornTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(cornTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Bacon"))
                     {
                         Destroy(heldObject);
-                        Instantiate(baconTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(baconTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Chicken"))
                     {
                         Destroy(heldObject);
-                        Instantiate(chickenTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(chickenTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Pepper"))
                     {
                         Destroy(heldObject);
-                        Instantiate(pepperTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(pepperTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Meat"))
                     {
                         Destroy(heldObject);
-                        Instantiate(meatTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(meatTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("BlueCheese"))
                     {
                         Destroy(heldObject);
-                        Instantiate(bluecheeseTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(bluecheeseTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Onion"))
                     {
                         Destroy(heldObject);
-                        Instantiate(onionTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(onionTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Mozzarella"))
                     {
                         Destroy(heldObject);
-                        Instantiate(mozzarellaTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(mozzarellaTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Mushroom"))
                     {
                         Destroy(heldObject);
-                        Instantiate(mushroomTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(mushroomTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Tomato"))
                     {
                         Destroy(heldObject);
-                        Instantiate(tomatoTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(tomatoTopping, child.position, randomRotation, child);
                     }
                     else if (heldObject.CompareTag("Ham"))
                     {
                         Destroy(heldObject);
-                        Instantiate(hamTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(hamTopping, child.position, randomRotation, child);
+
                     }
                     else if (heldObject.CompareTag("CheeseSlice"))
                     {
                         Destroy(heldObject);
-                        Instantiate(cheesesliceTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(cheesesliceTopping, child.position, randomRotation, child);
+
                     }
                     else if (heldObject.CompareTag("RedPepper"))
                     {
                         Destroy(heldObject);
-                        Instantiate(redpepperTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(redpepperTopping, child.position, randomRotation, child);
+
                     }
                     else if (heldObject.CompareTag("HotPepper"))
                     {
                         Destroy(heldObject);
-                        Instantiate(hotpepperTopping, toppings[poz].position, toppings[poz].rotation, toppings[poz]);
-                        toppingsAparitii[poz] = 1;
+                        Instantiate(hotpepperTopping, child.position, randomRotation, child);
+
                     }
                 }
                 else
@@ -433,6 +442,10 @@ public class PizzaMakingController : MonoBehaviour
             //Pizza holding part
             if (hitObject.CompareTag("Pizza") && !holdingObject && Input.GetKeyDown(KeyCode.G))
             {
+                if (heldObject != null)
+                {
+                    Destroy(heldObject);
+                }
                 Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
                 heldObject = hit.collider.gameObject;
                 GrabObject(rb);
@@ -440,9 +453,13 @@ public class PizzaMakingController : MonoBehaviour
             }
             else if (holdingObject && heldObject.CompareTag("HeldPizza") && Input.GetKeyDown(KeyCode.G))
             {
-                Rigidbody rb = pizzaTransform.GetChild(0).GetComponent<Rigidbody>();
-                ReleaseObject(rb);
-                heldObject.tag = "Pizza";
+                if (heldObject != null)
+                {
+                    Rigidbody rb = pizzaTransform.GetChild(0).GetComponent<Rigidbody>();
+                    ReleaseObject(rb);
+                    heldObject.tag = "Pizza";
+                    heldObject = null;
+                }
             }
         }
 
@@ -451,6 +468,8 @@ public class PizzaMakingController : MonoBehaviour
         {
             // Destroy the held object
             Destroy(heldObject);
+
+            holdingObject = false;
 
             // Set heldObject to null to indicate that nothing is being held
             heldObject = null;

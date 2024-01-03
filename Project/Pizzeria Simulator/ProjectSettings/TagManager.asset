@@ -44,6 +44,9 @@ TagManager:
   - TomatoLadle
   - CheeseLadle
   - HeldPizza
+  - Oven1
+  - Oven2
+  - DoughBowl
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    
+
     public Material highlightMaterial; // Assign your highlight material in the inspector
 
     private GameObject highlightedBowl;
@@ -27,20 +27,21 @@ public class PlayerInteraction : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
 
             // Check if the object is a bowl
-            if (hitObject.CompareTag("OlivesBowl") || hitObject.CompareTag("PepperoniBowl") 
-                || hitObject.CompareTag("CornBowl") || hitObject.CompareTag("BaconBowl") 
-                || hitObject.CompareTag("ChickenBowl") || hitObject.CompareTag("PepperBowl") 
-                || hitObject.CompareTag("MeatBowl") || hitObject.CompareTag("BluecheeseBowl") 
-                || hitObject.CompareTag("OnionBowl") || hitObject.CompareTag("MozzarellaBowl") 
-                || hitObject.CompareTag("MushroomBowl")  || hitObject.CompareTag("TomatoBowl") 
-                || hitObject.CompareTag("HamBowl") || hitObject.CompareTag("CheesesliceBowl") 
-                || hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl") 
-                || hitObject.CompareTag("TomatoSouceBowl") || hitObject.CompareTag("CheeseSouceBowl"))
+            if (hitObject.CompareTag("OlivesBowl") || hitObject.CompareTag("PepperoniBowl")
+                || hitObject.CompareTag("CornBowl") || hitObject.CompareTag("BaconBowl")
+                || hitObject.CompareTag("ChickenBowl") || hitObject.CompareTag("PepperBowl")
+                || hitObject.CompareTag("MeatBowl") || hitObject.CompareTag("BluecheeseBowl")
+                || hitObject.CompareTag("OnionBowl") || hitObject.CompareTag("MozzarellaBowl")
+                || hitObject.CompareTag("MushroomBowl") || hitObject.CompareTag("TomatoBowl")
+                || hitObject.CompareTag("HamBowl") || hitObject.CompareTag("CheesesliceBowl")
+                || hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl")
+                || hitObject.CompareTag("TomatoSouceBowl") || hitObject.CompareTag("CheeseSouceBowl")
+                || hitObject.CompareTag("DoughBowl"))
             {
                 // Highlight the bowl
                 HighlightBowl(hitObject);
             }
-            
+
         }
     }
 
