@@ -7,6 +7,9 @@ public class PlayerInteraction : MonoBehaviour
 
     public Material highlightMaterial; // Assign your highlight material in the inspector
 
+    private bool oven1DoorOpen = false;
+    private bool oven2DoorOpen = false;
+
     private GameObject highlightedBowl;
     private Dictionary<GameObject, Dictionary<Renderer, Material>> originalMaterialsDict = new Dictionary<GameObject, Dictionary<Renderer, Material>>();
 
@@ -40,6 +43,53 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // Highlight the bowl
                 HighlightBowl(hitObject);
+            }
+
+            //Oven doors animations
+            if (hitObject.CompareTag("Oven1") || hitObject.CompareTag("Oven2"))
+            {
+                Debug.Log(hitObject.tag + " was detected");
+
+                if (hitObject.CompareTag("Oven1"))
+                {
+                    // Get the Animator component of the object that was hit
+                    Animator oven1Animator = hitObject.GetComponentInParent<Animator>();
+
+                    if (oven1Animator != null)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E) && !oven1DoorOpen)
+                        {
+                            oven1Animator.SetBool("Oven1DoorOpen", !oven1Animator.GetBool("Oven1DoorOpen"));
+                            oven1DoorOpen = true;
+                        }
+                        else if (Input.GetKeyDown(KeyCode.E) && oven1DoorOpen)
+                        {
+                            oven1Animator.SetBool("Oven1DoorClose", !oven1Animator.GetBool("Oven1DoorClose"));
+                            oven1DoorOpen = false;
+                        }
+                    }
+                }
+                else if (hitObject.CompareTag("Oven2"))
+                {
+                    // Get the Animator component of the object that was hit
+                    Animator oven2Animator = hitObject.GetComponentInParent<Animator>();
+
+                    if (oven2Animator != null)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E) && !oven2DoorOpen)
+                        {
+                            oven2Animator.SetBool("Oven2DoorOpen", !oven2Animator.GetBool("Oven2DoorOpen"));
+                            oven2DoorOpen = true;
+                        }
+                        else if (Input.GetKeyDown(KeyCode.E) && oven1DoorOpen)
+                        {
+                            oven2Animator.SetBool("Oven2DoorClose", !oven2Animator.GetBool("Oven2DoorClose"));
+                            oven2DoorOpen = false;
+                        }
+                    }
+                }
+                else
+                    Debug.Log("Oven animator not found");
             }
 
         }

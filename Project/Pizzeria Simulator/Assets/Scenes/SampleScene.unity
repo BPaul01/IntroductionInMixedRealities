@@ -11978,7 +11978,7 @@ GameObject:
   - component: {fileID: 8861267155705266658}
   m_Layer: 0
   m_Name: Stove
-  m_TagString: Untagged
+  m_TagString: Oven1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12252,7 +12252,7 @@ GameObject:
   - component: {fileID: 4364752119325717682}
   - component: {fileID: 4364752119325717683}
   m_Layer: 0
-  m_Name: StoveAnimated
+  m_Name: Stove2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

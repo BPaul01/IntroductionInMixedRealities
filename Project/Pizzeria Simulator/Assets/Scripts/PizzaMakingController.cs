@@ -295,20 +295,12 @@ public class PizzaMakingController : MonoBehaviour
                 Debug.Log("Dough area");
 
                 pizzaDough = Instantiate(pizzaDoughToSpawn, doughTransform.position, doughTransform.rotation, doughTransform);
-
             }
 
             //Pizza making part
             if (hitObject.CompareTag("Pizza") && heldObject != null && Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Pizza area");
-                /*
-                 * TODO:
-                 *  1. Search for a topping refference of the pizza that has no children (aka is empty)
-                 *  2. The result should be a transform component of the first empty topping reference
-                 *  3. replace child with the result 
-                 *  4. delete 
-                 */
 
                 //Get all the childern
                 bool found = false;
