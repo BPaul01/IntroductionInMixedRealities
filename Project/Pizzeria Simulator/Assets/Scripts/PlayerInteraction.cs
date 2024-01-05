@@ -94,6 +94,18 @@ public class PlayerInteraction : MonoBehaviour
                 else
                     Debug.Log("Oven animator not found");
             }
+            else if (hitObject.CompareTag("HeldPizza"))
+            {
+                // Get the instance of the PizzaController component of the object with the tag "HeldPizza"
+                PizzaController pizzaController = hitObject.GetComponent<PizzaController>();
+
+                // Check if the PizzaController component is found
+                if (pizzaController != null)
+                {
+                    // Now you can use 'pizzaController' to access methods and properties of the PizzaController script
+                    pizzaController.SetPlayerInteractionInstance(this);
+                }
+            }
         }
     }
 

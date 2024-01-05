@@ -8,7 +8,6 @@ public class PizzaMakingController : MonoBehaviour
     public Transform pizzaTransform;
     public Transform doughTransform;
 
-
     public GameObject oliveToSpawn;
     public GameObject pepperoniToSpawn;
     public GameObject cornToSpawn;
@@ -297,8 +296,8 @@ public class PizzaMakingController : MonoBehaviour
                 pizzaDough = Instantiate(pizzaDoughToSpawn, doughTransform.position, doughTransform.rotation, doughTransform);
 
                 //Attach the script
-                Debug.Log("Trying to add PizzaController component to the pizza...");
                 pizzaDough.AddComponent<PizzaController>();
+
             }
 
             //Pizza making part

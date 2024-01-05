@@ -29,9 +29,10 @@ public class TrayController : MonoBehaviour
         return isPizzaOnTray;
     }
 
-    public void GetParentTag()
+    public string GetParentTag()
     {
         string parentTag = transform.parent.tag;
-        Debug.Log("Parent tag: " + parentTag);
+        //Debug.Log("Parent tag: " + parentTag);
+        return parentTag;
     }
 }

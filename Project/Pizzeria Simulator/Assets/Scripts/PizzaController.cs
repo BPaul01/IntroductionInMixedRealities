@@ -29,9 +29,15 @@ public class PizzaController : MonoBehaviour
     {
         if (other.CompareTag("OvenTray"))
         {
-            Debug.Log("Refference to TrayController instance removed");
+            //Debug.Log("Refference to TrayController instance removed");
             trayController = null;
         }
+    }
+
+    public void SetPlayerInteractionInstance(PlayerInteraction playerInteraction)
+    {
+        this.playerInteraction = playerInteraction;
+        //Debug.Log("Instance of PlayerInteraction aquired");
     }
 
 
@@ -43,6 +49,25 @@ public class PizzaController : MonoBehaviour
          * Check to see if the pizza is on the tray and the oven door of the same oven is shut
          * If so, start the cooking proccess
          */
-
+        
+        if (trayController != null && playerInteraction != null)
+        {
+            if (trayController.GetIsPizzaOnTray())
+            {
+                //Get the tag of the oven
+                string oven = trayController.GetParentTag();
+                //Debug.Log(playerInteraction.GetOven1DoorOpen());
+                if (oven == "Oven1" && !playerInteraction.GetOven1DoorOpen())
+                {
+                    Debug.Log("Cooking proccess can begin in the Oven1");
+                    //Start the cooking process
+                }
+                else if(oven == "Oven2" && !playerInteraction.GetOven2DoorOpen())
+                {
+                    Debug.Log("Cooking proccess can begin in the Oven2");
+                    //Start the cooking process
+                }
+            }
+        }
     }
 }
