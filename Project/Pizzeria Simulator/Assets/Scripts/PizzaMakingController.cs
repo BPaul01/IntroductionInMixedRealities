@@ -295,6 +295,10 @@ public class PizzaMakingController : MonoBehaviour
                 Debug.Log("Dough area");
 
                 pizzaDough = Instantiate(pizzaDoughToSpawn, doughTransform.position, doughTransform.rotation, doughTransform);
+
+                //Attach the script
+                Debug.Log("Trying to add PizzaController component to the pizza...");
+                pizzaDough.AddComponent<PizzaController>();
             }
 
             //Pizza making part

@@ -619,7 +619,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 7038e51ee8c704f408d132e5eb62fcf5, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7038e51ee8c704f408d132e5eb62fcf5, type: 3}
       propertyPath: m_LocalScale.x
@@ -2485,7 +2485,7 @@ Transform:
   - {fileID: 1765372460}
   - {fileID: 1853920384}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1093336660
 MonoBehaviour:
@@ -2546,7 +2546,7 @@ MonoBehaviour:
   redpepperToSpawn: {fileID: 919132149155446097, guid: 86d42bc1500d59d4194896f1d4feb980, type: 3}
   tomatoladleToSpawn: {fileID: 919132149155446097, guid: 4f068728410256146b7fae9b9899c31c, type: 3}
   cheeseladleToSpawn: {fileID: 919132149155446097, guid: a5ce4efb466e5e7448a85360cbf9333c, type: 3}
-  pizzaDoughToSpawn: {fileID: 8137969396195074956, guid: b64a5c864b5ddfa4e9ddd8b862a98fc8, type: 3}
+  pizzaDoughToSpawn: {fileID: 6409253806470037851, guid: 92b3b2e1b1056c54eb6dbfa068d50843, type: 3}
   pepperoniTopping: {fileID: 919132149155446097, guid: 07d89699b7c07154786cef9af7d708d7, type: 3}
   oliveTopping: {fileID: 919132149155446097, guid: 1b05ba726e398bb4e847d8bde1aa3083, type: 3}
   cornTopping: {fileID: 919132149155446097, guid: a962a99583221774d83fb38a31f7d9b7, type: 3}
@@ -2839,7 +2839,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3952d897e7ea90049aa483032e5ac986, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3952d897e7ea90049aa483032e5ac986, type: 3}
       propertyPath: m_LocalScale.x
@@ -4234,7 +4234,7 @@ RectTransform:
   - {fileID: 1866755218}
   - {fileID: 687830007}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5696,13 +5696,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2743079839942938487}
-  m_LocalRotation: {x: 0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -0.0025359252, y: -0.0031917212, z: 0.0031446782}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000029802322, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.25359258, y: 0.824, z: 0.3191721}
+  m_LocalScale: {x: 300, y: 300, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 1
+  m_Father: {fileID: 4364752119325717682}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &193041554639933597
 MeshRenderer:
@@ -6454,6 +6454,7 @@ Transform:
   - {fileID: 5312734218546199601}
   - {fileID: 6084220992955025912}
   - {fileID: 1532034828041137423}
+  - {fileID: 4147982355309094714}
   m_Father: {fileID: 249054269}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -6752,7 +6753,7 @@ Transform:
   - {fileID: 3740890086580070970}
   - {fileID: 4454417863207913229}
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &743661251695068158
 MeshRenderer:
@@ -7426,7 +7427,7 @@ Transform:
   - {fileID: 8100684805309811399}
   - {fileID: 6754626182373301450}
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1025577007416674323
 GameObject:
@@ -7713,7 +7714,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1273385341147375816
 MeshRenderer:
@@ -9025,7 +9026,7 @@ Transform:
   - {fileID: 4206482280430240894}
   - {fileID: 6424481676461905272}
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2072396472651667338
 MeshRenderer:
@@ -9119,9 +9120,10 @@ GameObject:
   - component: {fileID: 4147982355309094714}
   - component: {fileID: 4329479351084868803}
   - component: {fileID: 6052415645610118248}
+  - component: {fileID: 6052415645610118249}
   m_Layer: 0
-  m_Name: Stove Buttons
-  m_TagString: Untagged
+  m_Name: Stove Button
+  m_TagString: Oven1Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10282,9 +10284,10 @@ GameObject:
   - component: {fileID: 182563364993456037}
   - component: {fileID: 508177883125732444}
   - component: {fileID: 7558852608182303991}
+  - component: {fileID: 7558852608182303992}
   m_Layer: 0
-  m_Name: Stove Buttons
-  m_TagString: Untagged
+  m_Name: Stove Button
+  m_TagString: Oven2Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10509,7 +10512,7 @@ Transform:
   - {fileID: 105943205574554849}
   - {fileID: 7075251341020538343}
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2844941919700229265
 GameObject:
@@ -10660,7 +10663,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3077074176014637143
 MeshRenderer:
@@ -11464,7 +11467,7 @@ Transform:
   - {fileID: 644648232173214373}
   - {fileID: 489004370412681106}
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3551664894890210145
 MeshRenderer:
@@ -11849,7 +11852,7 @@ Transform:
   - {fileID: 5436801845584689752}
   - {fileID: 7396405004016282709}
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3829074853030738060
 GameObject:
@@ -12599,13 +12602,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092325568551043048}
-  m_LocalRotation: {x: 0.7071069, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.0025359252, y: -0.0031917212, z: 0.0031446782}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.000000029802322, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.25359258, y: 0.8263, z: 0.3191721}
+  m_LocalScale: {x: 300, y: 300, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 1
+  m_Father: {fileID: 543450652457354285}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4153575482328310581
 GameObject:
@@ -13019,6 +13022,7 @@ Transform:
   - {fileID: 8260323064057957550}
   - {fileID: 8032013055521536359}
   - {fileID: 3340243892662246800}
+  - {fileID: 182563364993456037}
   m_Father: {fileID: 249054269}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -14137,7 +14141,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4987642586158414139
 Transform:
@@ -14210,10 +14214,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8032013055521536359}
   - component: {fileID: 8186036142571116338}
-  - component: {fileID: 8186036142571116339}
   m_Layer: 0
   m_Name: Stove Door Front Glas
-  m_TagString: Oven2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14377,7 +14380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &5179592237611118739
 Light:
@@ -14652,7 +14655,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2349440087150871681}
-  - {fileID: 4147982355309094714}
   - {fileID: 5418642843874171121}
   - {fileID: 5965762969767097342}
   - {fileID: 737757698953664727}
@@ -14835,7 +14837,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5422711999436026331
 GameObject:
@@ -14969,7 +14971,7 @@ Transform:
   - {fileID: 3129710279969577584}
   - {fileID: 798939179869867556}
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5562358518825917522
 GameObject:
@@ -15585,7 +15587,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &5978515054700085615
 MeshRenderer:
@@ -15726,9 +15728,11 @@ GameObject:
   - component: {fileID: 1430101499118812709}
   - component: {fileID: 8495874813240156719}
   - component: {fileID: 8495874813240156720}
+  - component: {fileID: 8495874813240156721}
+  - component: {fileID: 8495874813240156722}
   m_Layer: 0
   m_Name: Oven Tray
-  m_TagString: Untagged
+  m_TagString: OvenTray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15879,6 +15883,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6052415645610118249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092325568551043048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00019106845, y: 0.0001910684, z: 0.00006221931}
+  m_Center: {x: -3.4924597e-10, y: 4.5838533e-10, z: -0.000019202786}
 --- !u!4 &6070614668368052805
 Transform:
   m_ObjectHideFlags: 0
@@ -16248,7 +16265,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6286726888652481277
 GameObject:
@@ -17149,7 +17166,7 @@ Transform:
   - {fileID: 178444590316808056}
   - {fileID: 3353757679046848166}
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &6863090962090591094
 MeshRenderer:
@@ -17817,7 +17834,7 @@ Transform:
   - {fileID: 4134860779407693799}
   - {fileID: 1554585503749463609}
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7226880403355235541
 Transform:
@@ -18282,14 +18299,41 @@ GameObject:
   - component: {fileID: 2936542862954516154}
   - component: {fileID: 5692381365672612528}
   - component: {fileID: 7545512115653647951}
+  - component: {fileID: 7545512115653647952}
+  - component: {fileID: 7545512115653647953}
   m_Layer: 0
   m_Name: Oven Tray
-  m_TagString: Untagged
+  m_TagString: OvenTray
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &7545512115653647951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545512115653647950}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00024196586, y: 0.0044002724, z: 0.004753617}
+  m_Center: {x: 0.00009391132, y: 0.00039422698, z: 0.0000000013801915}
+--- !u!114 &7545512115653647952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545512115653647950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098fb30d60a66fd4e96eb6df586941d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7545512115653647953
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18344,6 +18388,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7558852608182303992
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2743079839942938487}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00019106845, y: 0.0001910684, z: 0.00006221931}
+  m_Center: {x: 1.1641532e-10, y: 4.5838533e-10, z: -0.000019201854}
 --- !u!33 &7592147174525206808
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -18409,7 +18466,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7626876237819916783
 GameObject:
@@ -18917,7 +18974,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7941394704348396686
 Transform:
@@ -19200,7 +19257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8100684805309811399
 Transform:
@@ -19331,19 +19388,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.000011004042, y: 0.0024637803, z: -0.000030071296}
     m_Extent: {x: 0.0030000005, y: 0.002500007, z: 0.000029173621}
   m_DirtyAABB: 0
---- !u!65 &8186036142571116339
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5031017206101172075}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0060000024, y: 0.005000276, z: 0.00008677065}
-  m_Center: {x: -2.3010216e-10, y: 0.0024966754, z: 0.000014109457}
 --- !u!4 &8199999588124444400
 Transform:
   m_ObjectHideFlags: 0
@@ -19429,7 +19473,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1982407232110130206}
-  - {fileID: 182563364993456037}
   - {fileID: 8082533501203851374}
   - {fileID: 7625344312062215009}
   - {fileID: 3541242349371222088}
@@ -19823,11 +19866,36 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6030043764521119441}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.00024196497, y: 0.00440027, z: 0.0047536166}
   m_Center: {x: 0.000093910836, y: 0.00039422495, z: 6.9849204e-10}
+--- !u!114 &8495874813240156721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030043764521119441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098fb30d60a66fd4e96eb6df586941d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &8495874813240156722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6030043764521119441}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00024196497, y: 0.00440027, z: 0.0047536166}
+  m_Center: {x: 0.000093910836, y: 0.00039422588, z: 6.9849204e-10}
 --- !u!1 &8501683016568055742
 GameObject:
   m_ObjectHideFlags: 0
@@ -19875,7 +19943,7 @@ Transform:
   - {fileID: 1186409856637053679}
   - {fileID: 3462821037902610107}
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8548406568734099009
 MeshFilter:
@@ -20571,7 +20639,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5312734218546199601}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8991797393688513380
 MeshRenderer:
@@ -20798,27 +20866,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6084220992955025912}
   - component: {fileID: 5369041792829482925}
-  - component: {fileID: 9136058642564378613}
   m_Layer: 0
   m_Name: Stove Door Front Glas
-  m_TagString: Oven1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &9136058642564378613
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9136058642564378612}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0060000024, y: 0.0050002765, z: 0.00008677065}
-  m_Center: {x: -0.000000002325578, y: 0.0024966754, z: 0.000014109457}
 --- !u!1 &9139535174569031006
 GameObject:
   m_ObjectHideFlags: 0
@@ -20886,7 +20940,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8260323064057957550}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &9208217772831186153
 Transform:

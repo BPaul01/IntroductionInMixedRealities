@@ -39,18 +39,19 @@ public class PlayerInteraction : MonoBehaviour
                 || hitObject.CompareTag("HamBowl") || hitObject.CompareTag("CheesesliceBowl")
                 || hitObject.CompareTag("HotpepperBowl") || hitObject.CompareTag("RedpepperBowl")
                 || hitObject.CompareTag("TomatoSouceBowl") || hitObject.CompareTag("CheeseSouceBowl")
-                || hitObject.CompareTag("DoughBowl"))
+                || hitObject.CompareTag("DoughBowl")
+                || hitObject.CompareTag("Oven1Button") || hitObject.CompareTag("Oven2Button"))
             {
                 // Highlight the bowl
                 HighlightBowl(hitObject);
             }
 
             //Oven doors animations
-            if (hitObject.CompareTag("Oven1") || hitObject.CompareTag("Oven2"))
+            if (hitObject.CompareTag("Oven1Button") || hitObject.CompareTag("Oven2Button"))
             {
-                Debug.Log(hitObject.tag + " was detected");
+                //Debug.Log(hitObject.tag + " was detected");
 
-                if (hitObject.CompareTag("Oven1"))
+                if (hitObject.CompareTag("Oven1Button"))
                 {
                     // Get the Animator component of the object that was hit
                     Animator oven1Animator = hitObject.GetComponentInParent<Animator>();
@@ -61,15 +62,17 @@ public class PlayerInteraction : MonoBehaviour
                         {
                             oven1Animator.SetBool("Oven1DoorOpen", !oven1Animator.GetBool("Oven1DoorOpen"));
                             oven1DoorOpen = true;
+                            //change the position of the collider
                         }
                         else if (Input.GetKeyDown(KeyCode.E) && oven1DoorOpen)
                         {
                             oven1Animator.SetBool("Oven1DoorClose", !oven1Animator.GetBool("Oven1DoorClose"));
                             oven1DoorOpen = false;
+                            //reset the position of the collider
                         }
                     }
                 }
-                else if (hitObject.CompareTag("Oven2"))
+                else if (hitObject.CompareTag("Oven2Button"))
                 {
                     // Get the Animator component of the object that was hit
                     Animator oven2Animator = hitObject.GetComponentInParent<Animator>();
@@ -81,7 +84,7 @@ public class PlayerInteraction : MonoBehaviour
                             oven2Animator.SetBool("Oven2DoorOpen", !oven2Animator.GetBool("Oven2DoorOpen"));
                             oven2DoorOpen = true;
                         }
-                        else if (Input.GetKeyDown(KeyCode.E) && oven1DoorOpen)
+                        else if (Input.GetKeyDown(KeyCode.E) && oven2DoorOpen)
                         {
                             oven2Animator.SetBool("Oven2DoorClose", !oven2Animator.GetBool("Oven2DoorClose"));
                             oven2DoorOpen = false;
@@ -91,7 +94,6 @@ public class PlayerInteraction : MonoBehaviour
                 else
                     Debug.Log("Oven animator not found");
             }
-
         }
     }
 
@@ -139,5 +141,15 @@ public class PlayerInteraction : MonoBehaviour
             originalMaterialsDict.Remove(highlightedBowl);
             highlightedBowl = null;
         }
+    }
+
+    public bool GetOven1DoorOpen()
+    {
+        return this.oven1DoorOpen;
+    }
+
+    public bool GetOven2DoorOpen()
+    {
+        return this.oven2DoorOpen;
     }
 }

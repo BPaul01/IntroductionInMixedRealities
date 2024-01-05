@@ -47,6 +47,9 @@ TagManager:
   - Oven1
   - Oven2
   - DoughBowl
+  - Oven1Button
+  - Oven2Button
+  - OvenTray
   layers:
   - Default
   - TransparentFX
