@@ -76,13 +76,16 @@ public class PizzaController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the collided object has the TrayController script
-        trayController = other.GetComponent<TrayController>();
-
-        if (trayController != null)
+        if (other.CompareTag("OvenTray"))
         {
-            // Access the TrayController instance and perform actions
-            trayController.GetParentTag();
+            // Check if the collided object has the TrayController script
+            trayController = other.GetComponent<TrayController>();
+
+            if (trayController != null)
+            {
+                // Access the TrayController instance and perform actions
+                trayController.GetParentTag();
+            }
         }
     }
 

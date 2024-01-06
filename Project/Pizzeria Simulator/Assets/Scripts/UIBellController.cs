@@ -7,6 +7,7 @@ using System.IO;
 public class UIBellController : MonoBehaviour
 {
     public TextMeshProUGUI RecipeText;
+    private string currentRecipe = string.Empty;
     private string recipesFolderPath = "Assets/Recipes";
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class UIBellController : MonoBehaviour
         }
     }
 
-    void PrintNextRecipe()
+    private void PrintNextRecipe()
     {
         // Get all recipe files in the Recipes folder
         string[] recipeFiles = Directory.GetFiles(recipesFolderPath, "*.txt");
@@ -47,10 +48,16 @@ public class UIBellController : MonoBehaviour
 
             // Set the TextMeshPro text
             RecipeText.text = recipeText;
+            currentRecipe = recipeText;
         }
         else
         {
             Debug.LogWarning("No recipe files found in the Recipes folder.");
         }
+    }
+
+    public string GetCurrentRecipeText()
+    {
+        return currentRecipe;
     }
 }
