@@ -12,6 +12,7 @@ public class ScoreController : MonoBehaviour
     private string material;
 
     private int score;
+    private bool updatedScore = false;
 
     private GameObject pizzaObject;
 
@@ -54,6 +55,14 @@ public class ScoreController : MonoBehaviour
 
             score =  MakeScore(currentRecipe, toppings);
             Debug.Log("Scorul obtinut: " + score + " points");
+
+            //Update the score
+            if(!updatedScore)
+            {
+                uiBellController.UpdateScore(score);
+                updatedScore = true;
+                Destroy(pizzaObject);
+            }
         }
     }
 
@@ -63,6 +72,7 @@ public class ScoreController : MonoBehaviour
         {
             Debug.Log("Pizza is no longer detected on the evaluation tray");
             //isPizzaOnTray = false;
+            updatedScore = false;
         }
     }
 
@@ -99,7 +109,7 @@ public class ScoreController : MonoBehaviour
 
         int score = 10 * ingredients.Length;
         bool find;
-        Debug.Log("Score Initial: "+ score);
+        //Debug.Log("Score Initial: "+ score);
         //Verify every ingredient from the recipe
         foreach (string ingredient in ingredients)
         {   
@@ -119,7 +129,7 @@ public class ScoreController : MonoBehaviour
                 //Debug.Log("Topping: " + topping);
                 if (topping.ToLower().Contains(ingredientToCompare))
                 {
-                    Debug.Log("Ingredient: "+ ingredientToCompare + " - " + "Topping: " +topping);
+                    //Debug.Log("Ingredient: "+ ingredientToCompare + " - " + "Topping: " +topping);
                     find = true;
                     break;
                 }
@@ -132,7 +142,7 @@ public class ScoreController : MonoBehaviour
             }
         }
 
-        Debug.Log("Material: " + material);
+        //Debug.Log("Material: " + material);
 
         //Verify the stage of cooking
         if(material.Contains("Raw") || material.Contains("SemiCooked")){
