@@ -11,6 +11,13 @@ public class PizzaController : MonoBehaviour
     private int currentStageIndex = 0;
     private TrayController trayController;
     private PlayerInteraction playerInteraction;
+    private bool donePizza = false;
+    private bool burntPizza = false;
+
+    private Transform arrowTrayTransform;
+    private GameObject greenArrowToSpawn;
+    private GameObject redArrowToSpawn;
+    private GameObject arrow;
 
     // Start is called before the first frame update
     void Start()
@@ -80,11 +87,24 @@ public class PizzaController : MonoBehaviour
         {
             // Check if the collided object has the TrayController script
             trayController = other.GetComponent<TrayController>();
+            
 
             if (trayController != null)
             {
                 // Access the TrayController instance and perform actions
                 trayController.GetParentTag();
+
+                Debug.Log("Trying to load arrow objects");
+
+                arrowTrayTransform = trayController.GetReferenceArrow();
+                redArrowToSpawn = trayController.GetRedArrowObject();
+                greenArrowToSpawn = trayController.GetGreenArrowObject();
+                
+                if(redArrowToSpawn != null && greenArrowToSpawn != null && arrowTrayTransform != null)
+                {
+                    Debug.Log("Loaded objects succesfully");
+                    
+                }
             }
         }
     }
@@ -95,6 +115,12 @@ public class PizzaController : MonoBehaviour
         {
             //Debug.Log("Refference to TrayController instance removed");
             trayController = null;
+
+            arrowTrayTransform = null;
+            if(arrow != null)
+            {
+                Destroy(arrow);
+            }
         }
     }
 
@@ -116,10 +142,12 @@ public class PizzaController : MonoBehaviour
         
         if (trayController != null && playerInteraction != null)
         {
+            
             if (trayController.GetIsPizzaOnTray())
             {
                 //Get the tag of the oven
                 string oven = trayController.GetParentTag();
+
                 //Debug.Log(playerInteraction.GetOven1DoorOpen());
                 if (oven == "Oven1" && !playerInteraction.GetOven1DoorOpen())
                 {
@@ -154,6 +182,38 @@ public class PizzaController : MonoBehaviour
 
                 // Apply the material for the current stage
                 ApplyMaterialToParts(currentStageIndex);
+            }
+
+            if (currentStageIndex == 2 && !donePizza)
+            {
+                AudioSource audioSource1 = trayController.GetAudioSourceDonePizza();
+                audioSource1.Play();
+
+                Destroy(arrow);
+
+                if (arrowTrayTransform != null && greenArrowToSpawn != null)
+                {
+                    Debug.Log("Spawning green arrow");
+                    arrow = Instantiate(greenArrowToSpawn, arrowTrayTransform.position, arrowTrayTransform.rotation, arrowTrayTransform);
+                }
+
+                donePizza = true;
+            }
+
+            if(currentStageIndex == 3 && donePizza && !burntPizza)
+            {
+                AudioSource audioSource2 = trayController.GetAudioSourceBurntPizza();
+                audioSource2.Play();
+
+                Destroy(arrow);
+
+                if (arrowTrayTransform != null && redArrowToSpawn != null)
+                {
+                    Debug.Log("Spawning red arrow");
+                    arrow = Instantiate(redArrowToSpawn, arrowTrayTransform.position, arrowTrayTransform.rotation, arrowTrayTransform);
+                }
+
+                burntPizza = true;
             }
         }
         else

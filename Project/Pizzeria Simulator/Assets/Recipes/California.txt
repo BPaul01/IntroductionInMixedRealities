@@ -1,0 +1,8 @@
+California Pizza:
+- Tomato Souce
+- Cheese Souce
+- Chicken
+- Mozzarella
+- Corn
+- Red Pepper
+- Green Pepper

@@ -3,22 +3,7 @@ guid: 99dfa98aeeb8d8e4790d017c7d034bfc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: diamond tile browen_BaseColor
-    second: {fileID: 2800000, guid: e0d61861f0bd51d438919832f024093d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: diamond tile browen_Normal
-    second: {fileID: 2800000, guid: 7bb67a1ed6638be43b2e988d56093317, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: diamond tile browen_Roughness
-    second: {fileID: 2800000, guid: ca7a66b3cb4973143a5145dd85dae60b, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
