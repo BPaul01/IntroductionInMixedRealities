@@ -59,6 +59,9 @@ public class ScoreController : MonoBehaviour
             //Update the score
             if(!updatedScore)
             {
+                AudioSource audioSource = GetComponents<AudioSource>()[0];
+                audioSource.Play();
+
                 uiBellController.UpdateScore(score);
                 updatedScore = true;
                 Destroy(pizzaObject);

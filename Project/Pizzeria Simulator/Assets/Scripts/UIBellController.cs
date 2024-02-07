@@ -11,7 +11,9 @@ public class UIBellController : MonoBehaviour
     public TextMeshProUGUI ScoreText;
 
     private float elapsedTime = 0f;
-    private float totalTime = 5f;
+    private float totalTime;
+    private float absRemainingTime;
+    private string sign;
 
     private string currentRecipe = string.Empty;
     private string recipesFolderPath = "Assets/Recipes";
@@ -19,7 +21,8 @@ public class UIBellController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateTime();
+        if(currentRecipe != string.Empty)
+            UpdateTime();
 
         // Create a ray from the camera to the cursor position
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -34,6 +37,9 @@ public class UIBellController : MonoBehaviour
             // Check if the object is the bell
             if (hitObject.CompareTag("Bell") && Input.GetKeyDown(KeyCode.E))
             {
+                AudioSource audioSource = hitObject.GetComponents<AudioSource>()[0];
+                audioSource.Play();
+
                 //print the next recipe
                 PrintNextRecipe();
             }
@@ -57,6 +63,10 @@ public class UIBellController : MonoBehaviour
             // Set the TextMeshPro text
             RecipeText.text = recipeText;
             currentRecipe = recipeText;
+
+            //Set the times
+            totalTime = Mathf.FloorToInt(Random.Range(45, 61));
+            elapsedTime = 0f;
         }
         else
         {
@@ -72,7 +82,14 @@ public class UIBellController : MonoBehaviour
     public void UpdateScore(int score)
     {
         int playerScore = int.Parse(ScoreText.text.Split(" ")[1]);
-        ScoreText.text = "Score: " + (score + playerScore);
+        if(sign == "")
+        {
+            ScoreText.text = "Score: " + (score + playerScore + Mathf.FloorToInt(absRemainingTime));
+        }
+        else
+        {
+            ScoreText.text = "Score: " + (score + playerScore - Mathf.FloorToInt(absRemainingTime));
+        }
     }
 
     private void UpdateTime()
@@ -82,14 +99,14 @@ public class UIBellController : MonoBehaviour
         float remainingTime = totalTime - elapsedTime;
 
         // Calculate absolute value of remaining time
-        float absRemainingTime = Mathf.Abs(remainingTime);
+        absRemainingTime = Mathf.Abs(remainingTime);
 
         // Update UI text with formatted time (e.g., minutes:seconds)
         int minutes = Mathf.FloorToInt(absRemainingTime / 60f);
         int seconds = Mathf.FloorToInt(absRemainingTime % 60f);
         
         // Adjust sign based on remaining time
-        string sign = (remainingTime < 0) ? "-" : "";
+        sign = (remainingTime < 0) ? "-" : "";
 
         TimerText.text = string.Format("{0}{1:00}:{2:00}", sign, minutes, seconds);
     }
