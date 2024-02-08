@@ -23,7 +23,7 @@ public class ScoreController : MonoBehaviour
             Debug.Log("Pizza was detected on the evaluation tray");
 
             //Obtain Pizza Object
-           pizzaObject = other.gameObject;
+            pizzaObject = other.gameObject;
 
             //Get pizza toppings
             for (int i = 0; i < pizzaObject.transform.childCount; i++)

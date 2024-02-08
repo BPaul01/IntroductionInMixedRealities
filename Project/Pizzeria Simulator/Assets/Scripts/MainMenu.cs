@@ -10,8 +10,21 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void PlayGame()
+    public void PlayGameEasy()
     {
+        PlayerPrefs.SetString("difficulty", "easy");
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void PlayGameMedium()
+    {
+        PlayerPrefs.SetString("difficulty", "medium");
+        SceneManager.LoadSceneAsync(2);
+    }
+
+    public void PlayGameHard()
+    {
+        PlayerPrefs.SetString("difficulty", "hard");
         SceneManager.LoadSceneAsync(2);
     }
 

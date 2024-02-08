@@ -10,13 +10,29 @@ public class UIBellController : MonoBehaviour
     public TextMeshProUGUI TimerText;
     public TextMeshProUGUI ScoreText;
 
+    private string difficulty;
+
     private float elapsedTime = 0f;
     private float totalTime;
     private float absRemainingTime;
     private string sign;
+    private bool colorChanged = false;
 
     private string currentRecipe = string.Empty;
     private string recipesFolderPath = "Assets/Recipes";
+
+    void Start()
+    {
+        difficulty = PlayerPrefs.GetString("difficulty");
+        if(difficulty != null)
+        {
+            Debug.Log("Difficulty level: " + difficulty);
+        }
+        else
+        {
+            Debug.Log("No difficulty detected");
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -65,8 +81,15 @@ public class UIBellController : MonoBehaviour
             currentRecipe = recipeText;
 
             //Set the times
-            totalTime = Mathf.FloorToInt(Random.Range(45, 61));
+            if(difficulty == "easy")
+                totalTime = Mathf.FloorToInt(Random.Range(45, 61));
+            else if(difficulty == "medium")
+                totalTime = Mathf.FloorToInt(Random.Range(30, 51));
+            else
+                totalTime = 5f;
             elapsedTime = 0f;
+            TimerText.color = Color.yellow;
+            colorChanged = false;
         }
         else
         {
@@ -90,6 +113,8 @@ public class UIBellController : MonoBehaviour
         {
             ScoreText.text = "Score: " + (score + playerScore - Mathf.FloorToInt(absRemainingTime));
         }
+
+        RecipeText.text = string.Empty;
     }
 
     private void UpdateTime()
@@ -107,6 +132,13 @@ public class UIBellController : MonoBehaviour
         
         // Adjust sign based on remaining time
         sign = (remainingTime < 0) ? "-" : "";
+
+        // Change color to red if remaining time is below 0
+        if (remainingTime <= 0 && !colorChanged)
+        {
+            TimerText.color = Color.red;
+            colorChanged = true;
+        }
 
         TimerText.text = string.Format("{0}{1:00}:{2:00}", sign, minutes, seconds);
     }
